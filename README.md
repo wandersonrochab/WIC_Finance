@@ -27,6 +27,7 @@ Se tiver alguma dúvida ou quiser saber mais sobre como podemos ajudar seu negó
 - [Perfil da W.I.C no LinkedIn](https://www.linkedin.com/company/104756273/admin/inbox/)
 - [Meu Currículo Lattes](http://lattes.cnpq.br/2806443539014450)
 - [Meu Perfil no LinkedIn](https://www.linkedin.com/in/wanderson-bittencourt-8985a3b6/)
+- [Apresentação Streamlit](https://wicfinance-cs7yytx8yfyxkrbihfd8ah.streamlit.app/)
 
 ---
 
