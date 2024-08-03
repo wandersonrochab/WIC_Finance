@@ -5,14 +5,14 @@ import pandas as pd
 import os
 
 # importar os arquivos das paginas individuais
-import panorama
-import receitas
-import despesas
-import dre
-import dfc
-import orcamento
-import pessoas
-import funcoes
+# import panorama
+# import receitas
+# import despesas
+# import dre
+# import dfc
+# import orcamento
+# import pessoas
+# import funcoes
 
 
 @st.cache_data
