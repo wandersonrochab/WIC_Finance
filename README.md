@@ -32,3 +32,9 @@ Se tiver alguma dúvida ou quiser saber mais sobre como podemos ajudar seu negó
 ---
 
 Muito obrigado por visitar meu GitHub. Espero que você encontre as soluções que está procurando.
+
+
+# Experimento 01
+
+Essa é a versão 01 de um conjunto de demonstrações a serem elaboradas para mostrar o meu trabalho. Já faz tempo que tenho tal interesse, contudo os códigos estavam sendo produzidos, porém não mostrados os resultados.
+Para esse projeto criei de maneira aleatória algumas bases de dados. A primeira tem 3.000.000 de linhas com 8 colunas com o propósito de mostrar a capacidade de processamento e visualização dos dados.
