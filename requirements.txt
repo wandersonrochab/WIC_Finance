@@ -104,7 +104,7 @@ spopt==0.5.0
 spreg==1.4.2
 spvcm==0.3.0
 statsmodels==0.14.0
-streamlit==1.33.0
+streamlit==1.37.1
 streamlit-aggrid==1.0.3.post2
 streamlit-option-menu==0.3.12
 sympy==1.12
