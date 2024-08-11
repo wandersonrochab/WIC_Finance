@@ -1,8 +1,10 @@
 import pandas as pd
 import streamlit as st
+import os
 
 @st.cache_data
 def ImportarDados():
+    print(os.listdir())
     df = pd.read_parquet(r"base.parquet")
     df['Ano'] = df['Data'].dt.strftime('%Y')
     df['Tipo'] = df['Valor $'].apply(lambda x: 'R' if x > 0 else 'D')    
