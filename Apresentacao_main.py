@@ -5,8 +5,9 @@ import pandas as pd
 import os
 
 # importar os arquivos das paginas individuais
-from code.panorama import Panorama
+# from code.panorama import Panorama
 from code.apresentacao import display_app
+from code.balanco import Balanço
 
 from code.funct_aux import Filter
 from code.dataset import ImportarDados
@@ -38,8 +39,9 @@ class Apresentacao():
         with st.sidebar:
             st.sidebar.image(self.logo, use_column_width = True)
             choose = option_menu('MENU',
-                         ['Apresentação', 'Panorama', 'Receitas', 'Despesas', 
-                          'DRE', "DFC", 'Orçamento', 'Pessoal'],
+                         ['Apresentação','Balanço' #'Panorama', 'Receitas', 'Despesas', 
+                          #'DRE', "DFC", 'Orçamento', 'Pessoal'
+                          ],
                          icons = ['bookmark-check', 'cash','coin', 'wallet2', #https://icons.getbootstrap.com/?q=person
                                           'cash','cash', 'eye','person'],
                         menu_icon = 'list', 
@@ -68,29 +70,34 @@ class Apresentacao():
             
 
             def Selecao():
+                df = ImportarDados()
                 col = st.columns(2)
                 with col[0]:
                     anos = st.multiselect('Selecione um período!', 
-                                        sorted(Filter(ImportarDados(), 'Ano')),
-                                        default = sorted(Filter(ImportarDados(), 
-                                                                        'Ano'))[-1]
+                                        sorted(Filter(df, 'Ano')),
+                                        default = sorted(Filter(df,'Ano'))[-1]
                                         )
                     
                 with col[1]:
                     empresa = st.multiselect('Selecione uma empresa!', 
-                                        Filter(ImportarDados(), 'Empresa'),
-                                        default =sorted(Filter(ImportarDados(), 
-                                                                        'Empresa'))[0]
+                                        Filter(df, 'Empresa'),
+                                        default =sorted(Filter(df, 'Empresa'))[0]
                                         )
                 return anos, empresa          
             
-            lts = {1:'Valor $'}
+            lts = {1:'Valor $',
+                   2:'Data',
+                   3:'Empresa',
+                   4:'Conta',
+                   5:'Class'}
             anos, empresa = Selecao()
             
         if choose == 'Apresentação':
             display_app()
-        elif choose == 'Panorama':
-            Panorama(anos, empresa, lts)
+        elif choose == 'Balanço':
+            Balanço(anos, empresa, lts)
+        # elif choose == 'Panorama':
+        #     Panorama(anos, empresa, lts)
         # elif choose == 'Receitas':
         #     receitas.Receitas(anos, empresa)
         # elif choose == 'Despesas':
