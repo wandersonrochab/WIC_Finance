@@ -17,6 +17,9 @@ def TransformarNumero(df, coluna = None, tipoTransformado = None,
         elif valorUnitarioTipo == "Percentual":
             df = f"{df:,.2f}%"
             df = df.replace(',',".")
+        elif valorUnitarioTipo == "N":
+            df = f"{df:,.2f}" 
+            df = df.replace(',',".")
 
     return df
 
@@ -40,3 +43,17 @@ def AgruparDados(df, ano, empresa, valor, tipo, tipoAgrupamento= None):
         final = finalD/finalR*100      
     
     return final
+
+def FiltrarDados(df, lts_anos, lts_empresa, lts_geral, agrupar_dados = None):
+    # lts_anos = lista de anos. Seleção do Filtro
+    # lts_empresa = lista de empresas. Seleção do Filtro
+    # agrupar_dados = agrupar dados caso seja necessário. 
+    if agrupar_dados == None:
+        df = df.query(f"{'Ano'} in {lts_anos} and {'Empresa'} in {lts_empresa}")
+    elif agrupar_dados == 'Agrupar':
+        df = df.query(f"{'Ano'} in {lts_anos} and {'Empresa'} in {lts_empresa}")
+        df = df.groupby([lts_geral[3],lts_geral[4],lts_geral[5],
+            pd.Grouper(key = lts_geral[2], freq='M', axis=0)]).sum(lts_geral[1]).reset_index()
+
+    
+    return df
